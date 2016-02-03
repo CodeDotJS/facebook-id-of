@@ -1,0 +1,50 @@
+{
+  "name": "facebook-id-of",
+  "version": "1.0.9",
+  "description": "Shows userid of a facebook user in your console.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedotjs/facebook-id-of.git"
+  },
+  "author": "Rishi Giri <rushforlinux@gmail.com> (rishigiri.com)",
+  "bin": {
+    "insta-id-of": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "terminal",
+    "text",
+    "facebook",
+    "user",
+    "userid"
+  ],
+  "dependencies": {
+    "yargs": "*",
+    "colors": "*"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.2.2",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  },
+  "bugs": {
+    "url": "https://github.com/codedotjs/facebook-id-of/issues"
+  },
+  "homepage": "https://github.com/codedotjs/facebook-id-of#readme",
+  "main": "cli.js",
+  "readmeFilename": "README.md"
+}
