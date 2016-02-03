@@ -46,5 +46,6 @@
     "url": "https://github.com/codedotjs/facebook-id-of/issues"
   },
   "homepage": "https://github.com/codedotjs/facebook-id-of#readme",
+  "readmeFilename": "README.md",
   "main": "cli.js"
 }
