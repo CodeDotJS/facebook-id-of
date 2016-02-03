@@ -9,7 +9,7 @@
   },
   "author": "Rishi Giri <rushforlinux@gmail.com> (rishigiri.com)",
   "bin": {
-    "insta-id-of": "cli.js"
+    "facebook-id-of": "cli.js"
   },
   "engines": {
     "node": ">=4"
