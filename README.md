@@ -1,4 +1,4 @@
-# instagram-id-of
+# facebook-id-of
 
 > Prints the userid of facebook user in your console.
 
