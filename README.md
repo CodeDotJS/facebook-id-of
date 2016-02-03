@@ -26,11 +26,6 @@ $ facebook-id-of -u '/user.name'
 
 <img src="http://rishigiri.com/github/fb.png" alt="">
 
-## Related
-
-Python Version [Instagram UserID](https://github.com/CodeDotJS/Instagram-UserId)
-
-
 ## License
 
 MIT © [Rishi Giri](http://rishigiri.com)
