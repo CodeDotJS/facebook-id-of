@@ -2,7 +2,7 @@
 
 'use strict';
 
-const https = require('follow-redirects').https;
+const https = require('https');
 const colors = require('colors');
 
 colors.setTheme({
@@ -40,7 +40,7 @@ const req = https.request(options, function (res) {
 	if (res.statusCode === 200) {
 		console.log('\nStatus Code: '.info, '😀'.info); // res.statusCode
 	} else {
-		console.log("\nStatus Code: ".error, "😥".info);
+		console.log('\nStatus Code: '.error, '😥'.info);
 	}
 	var store = '';
 	res.setEncoding('utf8');
@@ -56,7 +56,7 @@ const req = https.request(options, function (res) {
                 "'s Facebook ID is ".info + arrMatches[0].replace('entity_id":"', '').toString().normal +
                 ' |\n'.info);
 		} else {
-			console.log('\nSorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.'.error + '\n');
+			console.log('\nSorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
 		}
 	});
 });
