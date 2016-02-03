@@ -13,7 +13,7 @@ $ npm install --global facebook-id-of
 ```
 $ facebook-id-of -u '/user.name'
 
-  Usage
+  Usage :
 
     $ insta-id-of -u '/zuck'
 
