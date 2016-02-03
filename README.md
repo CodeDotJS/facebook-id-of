@@ -15,7 +15,7 @@ $ facebook-id-of -u '/user.name'
 
   Usage :
 
-    $ insta-id-of -u '/zuck'
+    $ facebook-id-of -u '/zuck'
 
     Status Code : 200
 
