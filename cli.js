@@ -18,8 +18,8 @@ colors.setTheme({
 });
 
 const argv = require('yargs')
-    .usage('Usage: $0 -u [/user.name]')
-    .demand(['u'])
+    .usage('Usage: $0 -u [/user.name]'.info)
+    .demand(['u'.normal])
     .argv;
 
 const options = {
