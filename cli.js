@@ -18,8 +18,9 @@ colors.setTheme({
 });
 
 const argv = require('yargs')
-    .usage('Usage: $0 -u [/user.name]'.info)
+    .usage('\nUsage: $0 -u [/user.name]'.info)
     .demand(['u'])
+    .describe('u', 'facebook username')
     .argv;
 
 const options = {
@@ -36,27 +37,24 @@ const options = {
 	}
 };
 
-const req = https.request(options, function (res) {
+const req = https.request(options, res => {
 	if (res.statusCode === 200) {
-		console.log('\nStatus Code: '.info, '😀'.info); // res.statusCode
+		console.log('\n Status Code  : '.info, '😀'.info);
 	} else {
-		console.log('\nStatus Code: '.error, '😥'.info);
+		console.log('\n Status Code  : '.error, '😥'.info);
 	}
 	var store = '';
 	res.setEncoding('utf8');
-	res.on('data', function (d) {
+	res.on('data', d => {
 		store += d;
 	});
-	res.on('end', function () {
+	res.on('end', () => {
 		const rePattern = new RegExp(/entity_id":"\d*/);
 		const arrMatches = store.match(rePattern);
 		if (arrMatches && arrMatches[0]) {
-			console.log('\n| '.info +
-                argv.u.replace('/', '').toUpperCase().toString().info +
-                "'s Facebook ID is ".info + arrMatches[0].replace('entity_id":"', '').toString().normal +
-                ' |\n'.info);
+			console.log('\n', argv.u.replace('/', '').toUpperCase().toString().info + '\'s Facebook ID is '.info + arrMatches[0].replace('entity_id":"', '').toString().normal,'\n');
 		} else {
-			console.log('\nSorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
+			console.log('\n Sorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
 		}
 	});
 });
