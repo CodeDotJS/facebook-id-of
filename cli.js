@@ -41,9 +41,10 @@ const req = https.request(options, res => {
 	if (res.statusCode === 200) {
 		console.log('\n Status Code  : '.info, '😀'.info);
 	} else {
-		console.log('\n Status Code  : '.error, '😥'.info);
+		console.log('\n Sorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
+		process.exit(1);
 	}
-	var store = '';
+	let store = '';
 	res.setEncoding('utf8');
 	res.on('data', d => {
 		store += d;
@@ -52,9 +53,9 @@ const req = https.request(options, res => {
 		const rePattern = new RegExp(/entity_id":"\d*/);
 		const arrMatches = store.match(rePattern);
 		if (arrMatches && arrMatches[0]) {
-			console.log('\n', argv.u.replace('/', '').toUpperCase().toString().info + '\'s Facebook ID is '.info + arrMatches[0].replace('entity_id":"', '').toString().normal,'\n');
+			console.log('\n', argv.u.replace('/', '').toUpperCase().toString().info + '\'s Facebook ID is '.info + arrMatches[0].replace('entity_id":"', '').toString().normal, '\n');
 		} else {
-			console.log('\n Sorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
+			/* do nothing */
 		}
 	});
 });
