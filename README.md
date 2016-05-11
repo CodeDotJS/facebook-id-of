@@ -26,6 +26,11 @@ $ facebook-id-of
 Missing required argument: u
 
 ```
+
+## Screenshot
+
+![facebook-id-of](http://rishigiri.com/github/github.png) 
+
 ## License
 
 MIT © [Rishi Giri](http://rishigiri.com)
