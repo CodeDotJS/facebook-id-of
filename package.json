@@ -32,6 +32,7 @@
   "dependencies": {
     "https": "*",
     "yargs": "*",
+    "update-notifier": "*",
     "colors": "*"
   },
   "devDependencies": {
