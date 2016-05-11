@@ -12,10 +12,6 @@ const argv = require('yargs')
 
 	.command('u', colors.cyan.bold('❱ ') + ' find facebook user\'s userid')
 
-	.command('g', colors.cyan.bold('❱ ') + ' find facebook group\'s id   ')
-
-	.command('p', colors.cyan.bold('❱ ') + ' find facebook page\'s id    ')
-
 	.demand(['u'])
 
 	.describe('u', colors.cyan.bold('❱ ') + 'facebook username')
@@ -74,9 +70,9 @@ checkInternet(isConnected => {
 
 const req = https.request(options, res => {
 	if (res.statusCode === 200) {
-		console.log('\n Status Code  : '.info, '😀'.info);
+		console.log(colors.cyan.bold('\n ❱ Facebook User  :  ✔'));
 	} else {
-		console.log('\n Sorry '.error + argv.u.replace('/', '').toUpperCase().toString().info + ' is not a Facebook User.\n'.error);
+		console.log(colors.red.bold('\n ❱ Facebook User  :  ✖\n'));
 
 		process.exit(1);
 	}
@@ -94,7 +90,7 @@ const req = https.request(options, res => {
 		const arrMatches = store.match(rePattern);
 
 		if (arrMatches && arrMatches[0]) {
-			console.log('\n', argv.u.replace('/', '').toUpperCase().toString().info +'\'s Facebook ID is '.info + arrMatches[0].replace('entity_id":"', '').toString().normal, '\n');
+			console.log(colors.cyan.bold('\n ❱ User ID        : '), colors.green.bold(arrMatches[0].replace('entity_id":"', ''), '\n'));
 		} else {
 			/* do nothing */
 		}
