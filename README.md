@@ -1,6 +1,6 @@
 # facebook-id-of
 
-> Prints the userid of facebook user in your console.
+> Find facebook user's user id directly from your console.
 
 ## Install
 
@@ -11,21 +11,21 @@ $ npm install --global facebook-id-of
 ## Usage
 
 ```
-$ facebook-id-of -u '/user.name'
+$ facebook-id-of 
+	
+	Usage: cli.js <command> [target]
 
-  Usage :
+	Commands:
 
-    $ facebook-id-of -u '/zuck'
+		u  ❱  find facebook user's userid
 
-    Status Code : 200
+	Options:
 
-    Facebook Userid of ZUCK is : 4
+		-u  ❱ facebook username                                             [required]
+
+Missing required argument: u
 
 ```
-## Screenshot
-
-<img src="http://rishigiri.com/github/fb.png" alt="">
-
 ## License
 
 MIT © [Rishi Giri](http://rishigiri.com)
