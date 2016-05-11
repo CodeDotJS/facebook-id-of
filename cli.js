@@ -14,7 +14,7 @@ const argv = require('yargs')
 
 	.demand(['u'])
 
-	.describe('u', colors.cyan.bold('❱ ') + 'facebook username')
+	.example(colors.green.bold('$0 -u zuck'))
 
 	.argv;
 
