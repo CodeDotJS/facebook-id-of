@@ -21,7 +21,7 @@ $ facebook-id-of
 
 	Options:
 
-		-u  ❱ facebook username                                             [required]
+		-u  ❱ facebook username                           [required]
 
 Missing required argument: u
 
