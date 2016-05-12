@@ -13,7 +13,7 @@ $ npm install --global facebook-id-of
 ```
 $ facebook-id-of 
 	
-	Usage: cli.js <command> [target]
+	Usage: facebook-id-of <command> [target]
 
 	Commands:
 
