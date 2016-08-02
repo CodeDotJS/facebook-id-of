@@ -52,7 +52,7 @@ dns.lookup('facebook.com', err => {
 
 const req = https.request(options, res => {
 	if (res.statusCode === 200) {
-		logUpdate(`${colors.cyan.bold('\n›')} ${colors.dim(`Sorry "${arg}" is a facebook user!`)}\n`);
+		logUpdate(`${colors.cyan.bold('\n›')} ${colors.yellow(arg)} ${colors.dim(`is a facebook user!`)}\n`);
 	}
 
 	let store = '';
