@@ -1,7 +1,7 @@
 {
   "name": "facebook-id-of",
   "version": "1.1.7",
-  "description": "Shows userid of a facebook user in your console.",
+  "description": "SEasily find User ID of any facebook user directly from command line",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -30,10 +30,10 @@
     "userid"
   ],
   "dependencies": {
+    "colors": "*",
     "https": "*",
-    "yargs": "*",
-    "update-notifier": "*",
-    "colors": "*"
+    "log-update": "^1.0.2",
+    "update-notifier": "*"
   },
   "devDependencies": {
     "ava": "*",

@@ -1,35 +1,39 @@
-# facebook-id-of
+# ![faceook-id-of](media/fb.png)
+<p align="center">
+	<br>
+	<img width="460" src="media/fb.gif" alt="facebook-id-of">
+	<br>
+	<a href="https://travis-ci.org/CodeDotJS/facebook-id-of">
+	<img src="https://travis-ci.org/CodeDotJS/facebook-id-of.svg?branch=master">
+	</a>
+</p>
 
-> Find facebook user's user id directly from your console.
+> Easily find User ID of any facebook user directly from command line
 
 ## Install
 
 ```
-$ npm install --global facebook-id-of
+$ [sudo] npm install --global facebook-id-of
 ```
+
+`Required NodeJS version` __`^4`__
 
 ## Usage
 
 ```
-$ facebook-id-of 
-	
-	Usage: facebook-id-of <command> [target]
+$ facebook-id-of
 
-	Commands:
+	Usage :   facebook-id-of <username>
 
-		u  ❱  find facebook user's userid
+	Example : facebook-id-of RishiDotJS
 
-	Options:
-
-		-u  ❱ facebook username                           [required]
-
-Missing required argument: u
+	Help :    facebook-id-of -h --help
 
 ```
 
-## Screenshot
+## Related
 
-![facebook-id-of](http://rishigiri.com/github/github.png) 
+- __[`FacebookID`](https://github.com/CodeDotJS/facebookid) :__ `API to find UserID of a facebook user`
 
 ## License
 

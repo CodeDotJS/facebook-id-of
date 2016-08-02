@@ -4,22 +4,27 @@
 
 const dns = require('dns');
 const https = require('https');
+const logUpdate = require('log-update');
 const colors = require('colors/safe');
 
-const arrow = colors.cyan.bold('❱');
+const arg = process.argv[2];
+const arrow = colors.cyan.bold('›');
 
-const argv = require('yargs')
-	.usage(colors.cyan.bold('\n Usage: $0 <command> [target]'))
-	.command('u', `${arrow} find facebook user\'s userid`)
-	.demand(['u'])
-	.example(colors.green.bold('$0 -u zuck'))
-	.argv;
+if (!arg || arg === '-h' || arg === '--help') {
+	console.log(`
+ ${colors.cyan('Usage   :')} facebook-id-of ${colors.blue('<username>\n')}
+ ${colors.cyan('Example :')} facebook-id-of ${colors.yellow('RishiDotJS\n')}
+ ${colors.cyan('Help    :')} facebook-id-of ${colors.green('-h')} ${colors.dim('--help')}
+ `);
+	process.exit(1);
+}
 
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
+
 updateNotifier({pkg}).notify();
 
-const userArgs = argv.u;
+const userArgs = arg;
 const pathReq = `/${userArgs}`;
 
 const options = {
@@ -36,21 +41,20 @@ const options = {
 	}
 };
 
-// reduced boilerplates
-dns.lookup('instagram.com', err => {
+dns.lookup('facebook.com', err => {
 	if (err && err.code === 'ENOTFOUND') {
-		console.log(colors.red.bold('\n ❱ Internet Connection   :   ✖\n'));
+		logUpdate(`\n${colors.red.bold(arrow)} Please check your internet connection`);
 		process.exit(1);
+	} else {
+		logUpdate(`\n${arrow} ${colors.dim('Fetching UserID. Please wait!')}`);
 	}
 });
 
 const req = https.request(options, res => {
 	if (res.statusCode === 200) {
-		console.log(colors.cyan.bold('\n ❱ Facebook User  :  ✔'));
-	} else {
-		console.log(colors.red.bold('\n ❱ Facebook User  :  ✖\n'));
-		process.exit(1);
+		logUpdate(`${colors.cyan.bold('\n›')} ${colors.dim(`Sorry "${arg}" is a facebook user!`)}\n`);
 	}
+
 	let store = '';
 	res.setEncoding('utf8');
 
@@ -63,9 +67,10 @@ const req = https.request(options, res => {
 		const arrMatches = store.match(rePattern);
 
 		if (arrMatches && arrMatches[0]) {
-			console.log(colors.cyan.bold('\n ❱ User ID        : '), colors.green.bold(arrMatches[0].replace('entity_id":"', ''), '\n'));
+			logUpdate();
+			console.log(`${colors.cyan.bold(`${arrow}`)} ${colors.dim('Facebook ID of')} ${arg} ${colors.dim('is')} ${arrMatches[0].replace('entity_id":"', '')}\n`);
 		} else {
-			/* do nothing */
+			logUpdate(`${colors.cyan.bold('\n›')} ${colors.dim(`Sorry "${arg}" is not a facebook user!`)}\n`);
 		}
 	});
 });
