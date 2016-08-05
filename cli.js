@@ -8,7 +8,7 @@ const logUpdate = require('log-update');
 const colors = require('colors/safe');
 
 const arg = process.argv[2];
-const arrow = colors.cyan.bold('›');
+const arrow = '›';
 
 if (!arg || arg === '-h' || arg === '--help') {
 	console.log(`
@@ -43,16 +43,16 @@ const options = {
 
 dns.lookup('facebook.com', err => {
 	if (err && err.code === 'ENOTFOUND') {
-		logUpdate(`\n${colors.red.bold(arrow)} Please check your internet connection`);
+		logUpdate(`\n${colors.red.bold(arrow)} Please check your internet connection\n`);
 		process.exit(1);
 	} else {
-		logUpdate(`\n${arrow} ${colors.dim('Fetching UserID. Please wait!')}`);
+		logUpdate(`\n${colors.cyan.bold(arrow)} ${colors.dim('Fetching UserID. Please wait!')}`);
 	}
 });
 
 const req = https.request(options, res => {
 	if (res.statusCode === 200) {
-		logUpdate(`${colors.cyan.bold('\n›')} ${colors.yellow(arg)} ${colors.dim(`is a facebook user!`)}\n`);
+		logUpdate(`\n${colors.cyan.bold(arrow)} ${colors.yellow(arg)} ${colors.dim(`is a facebook user!`)}\n`);
 	}
 
 	let store = '';
@@ -70,7 +70,7 @@ const req = https.request(options, res => {
 			logUpdate();
 			console.log(`${colors.cyan.bold(`${arrow}`)} ${colors.dim('Facebook ID of')} ${arg} ${colors.dim('is')} ${arrMatches[0].replace('entity_id":"', '')}\n`);
 		} else {
-			logUpdate(`${colors.cyan.bold('\n›')} ${colors.dim(`Sorry "${arg}" is not a facebook user!`)}\n`);
+			logUpdate(`\n${colors.red.bold(arrow)} ${colors.dim(`Sorry! '${arg}' is not a facebook user`)}\n`);
 		}
 	});
 });
