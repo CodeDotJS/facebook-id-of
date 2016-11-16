@@ -1,7 +1,7 @@
 {
   "name": "facebook-id-of",
   "version": "1.1.10",
-  "description": "SEasily find User ID of any facebook user directly from command line",
+  "description": "Easily find User ID of any facebook user directly from command line",
   "license": "MIT",
   "repository": {
     "type": "git",
