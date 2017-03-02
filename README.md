@@ -16,8 +16,6 @@
 $ [sudo] npm install --global facebook-id-of
 ```
 
-`Required NodeJS version` __`^4`__
-
 ## Usage
 
 ```

@@ -12,12 +12,13 @@ test.cb('main', t => {
 	});
 });
 
-test.cb('UserID', t => {
-	childProcess.execFile('./cli.js', ['RishiDotJS'], {
-		cwd: __dirname
-	}, (err, stdout) => {
-		t.ifError(err);
-		t.true(stdout === '\u001b[?25l\n› Fetching UserID. Please wait!\n\u001b[?25l\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\u001b[1A\u001b[1000D\u001b[K\n› Facebook ID of RishiDotJS is 100009171406504\n\n\u001b[?25h');
+test.cb('default', t => {
+	const cp = childProcess.spawn('./cli.js', ['RishiDotJS'], {stdio: 'inherit'});
+
+	cp.on('error', t.ifError);
+
+	cp.on('close', code => {
+		t.is(code, 0);
 		t.end();
 	});
 });
