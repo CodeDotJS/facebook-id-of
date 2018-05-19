@@ -1,0 +1,8 @@
+media/
+.gitignore
+.gitattributes
+.travis.yml
+.editorconfig
+licence
+README.md
+test.js
