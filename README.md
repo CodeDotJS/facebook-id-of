@@ -1,37 +1,58 @@
-# ![faceook-id-of](media/fb.png)
-<p align="center">
-	<br>
-	<img width="460" src="media/fb.gif" alt="facebook-id-of">
-	<br>
-	<a href="https://travis-ci.org/CodeDotJS/facebook-id-of">
+# facebook-id-of
+
+Easily find user ID of any Facebook user
+
+<a href="https://travis-ci.org/CodeDotJS/facebook-id-of">
 	<img src="https://travis-ci.org/CodeDotJS/facebook-id-of.svg?branch=master">
-	</a>
-</p>
+</a>
 
-> Easily find User ID of any facebook user directly from command line
+## Getting started
 
-## Install
+### CLI usage
 
 ```
 $ [sudo] npm install --global facebook-id-of
 ```
 
-## Usage
-
 ```
 $ facebook-id-of
-
-	Usage :   facebook-id-of <username>
-
-	Example : facebook-id-of RishiDotJS
-
-	Help :    facebook-id-of -h --help
-
+Usage: facebook-id-of <username>
 ```
 
-## Related
+### Programmatically
 
-- __[`FacebookID`](https://github.com/CodeDotJS/facebookid) :__ `API to find UserID of a facebook user`
+```
+$ npm install --save facebook-id-of
+```
+
+```javascript
+const facebookIdOf = require('facebook-id-of');
+
+// using callback
+facebookIdOf('an_user', function (err, facebookId) {
+  if (err) return console.error(err);
+  console.log(facebookId);
+});
+
+// using promise
+facebookIdOf('an_user')
+  .then((facebookId) => {
+    console.log(facebookId);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+// using async/await
+async function () {
+  try {
+	  const facebookId = await facebookIdOf('an_user');
+	  console.log(facebookId);
+  } catch (err) {
+	  console.error(err);
+  }
+}
+```
 
 ## License
 

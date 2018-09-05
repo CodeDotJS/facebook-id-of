@@ -1,24 +1,29 @@
-import childProcess from 'child_process';
-import test from 'ava';
+const test = require('ava');
+const childProcess = require('child_process');
 
-test.cb('main', t => {
-	const cp = childProcess.spawn('./cli.js', {stdio: 'inherit'});
-
+test.cb('help', t => {
+	const cp = childProcess.spawn('./cli.js');
 	cp.on('error', t.ifError);
-
 	cp.on('close', code => {
-		t.is(code, 1);
+		t.is(code, 0);
 		t.end();
 	});
 });
 
-test.cb('default', t => {
-	const cp = childProcess.spawn('./cli.js', ['RishiDotJS'], {stdio: 'inherit'});
-
+test.cb('exists', t => {
+	const cp = childProcess.spawn('./cli.js', ['RishiDotJS']);
 	cp.on('error', t.ifError);
-
 	cp.on('close', code => {
 		t.is(code, 0);
+		t.end();
+	});
+});
+
+test.cb('does-not-exists', t => {
+	const cp = childProcess.spawn('./cli.js', ['_not_a_user_']);
+	cp.on('error', t.ifError);
+	cp.on('close', code => {
+		t.is(code, 1);
 		t.end();
 	});
 });
